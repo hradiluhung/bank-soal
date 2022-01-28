@@ -1,0 +1,206 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+  <!-- Required meta tags -->
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+
+  <!-- Bootstrap CSS -->
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet"
+    integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous">
+
+  <!-- Own CSS -->
+  <link rel="stylesheet" href="assets/css/style.css">
+
+  <title>Dashboard | Bank Soal</title>
+</head>
+
+<body>
+
+  <div id="overlay"></div>
+
+  <div class="header-wrap d-flex flex-column">
+    <div id="header" class="header d-flex justify-content-between align-items-center">
+      <div class="logo-app">
+        <img class="primary-icon" src="assets/img/logo/logo.svg" width="150px" alt="">
+      </div>
+
+      <div class="d-flex">
+        <div class="search-wrap d-flex me-4 mt-2">
+          <label for="search"><img class="primary-icon" src="assets/img/icon/search-solid.svg" alt=""
+              width="18px"></label>
+          <input id="search" class="ms-3" type="text" name="search" placeholder="Cari">
+          </input>
+        </div>
+
+        <img id="search-icon" class="primary-icon" src="assets/img/icon/search-solid.svg" width="18px"
+          onclick="openSearchBar()">
+
+        <img id="profile-ava" class="profile-ava" src="assets/img/icon/profile-ava-solid.svg" width="18px"
+          onclick="toggleDropdown()">
+      </div>
+    </div>
+
+    <div id="dropdown-profile">
+      <ul>
+        <a href="edit-profile.html">
+          <li class="dropdown">Edit profil</li>
+        </a>
+        <a href="index.html">
+          <li class="dropdown">Logout</li>
+        </a>
+      </ul>
+    </div>
+  </div><!-- END OF HEADER-->
+
+  <div class="container kelas test d-flex flex-column">
+    <div id="search-bar-kelas">
+      <input type="text" name="search" placeholder="Cari">
+      <button>Cari</button>
+    </div>
+    <div class="top-kelas d-flex justify-content-between align-items-center ps-2 pe-2">
+      <div>
+        <h3 style="font-weight: bold;">Hi, nama-user!</h3>
+        <p>Kelas yang sudah Anda ikuti:</p>
+      </div>
+      <div class="btn-container d-flex justify-content-center">
+        <button id="join-btn" class="me-4" onclick="openJoinKelas()">Join Kelas</button>
+        <button id="buat-btn" onclick="openBuatKelas()">Buat Kelas</button>
+      </div>
+    </div>
+
+    <div id="list-kelas-wrap" class="mt-4">
+
+      <!-- JIKA KELAS KOSONG -->
+      <!-- <p class="no-class-alert">Anda belum mengikuti kelas apapun</p> -->
+
+      <!-- JIKA KELAS ADA -->
+      <div class="list-kelas box d-flex flex-column p-2 m-3">
+        <div class="cover-kelas">
+          <img class="img-cover" src="assets/img/cover-card/img1.jpg" width="18px">
+          <img class="kelas-buatan" src="assets/img/icon/crown-solid.svg" width="18px">
+        </div>
+        <div class="body-card">
+          <h3>Pemrograman Web I</h3>
+          <div class="info-card">
+            <p>Matkul Semester 3 IF Unsoed</p>
+            <a href="kelas.html"><button>Masuk</button></a>
+          </div>
+        </div>
+      </div>
+
+      <div class="list-kelas box d-flex flex-column p-2 m-3">
+        <div class="cover-kelas">
+          <img class="img-cover" src="assets/img/icon/images-solid.svg" width="18px">
+          <img class="kelas-buatan" src="assets/img/icon/crown-solid.svg" width="18px" style="display: none;">
+        </div>
+        <div class="body-card">
+          <h3>nama-kelas</h3>
+          <div class="info-card">
+            <p>Deskripsi</p>
+            <a href="kelas.html"><button>Masuk</button></a>
+          </div>
+        </div>
+      </div>
+
+      <div class="list-kelas box d-flex flex-column p-2 m-3">
+        <div class="cover-kelas">
+          <img class="img-cover" src="assets/img/icon/images-solid.svg" width="18px">
+          <img class="kelas-buatan" src="assets/img/icon/crown-solid.svg" width="18px" style="display: none;">
+        </div>
+        <div class="body-card">
+          <h3>nama-kelas</h3>
+          <div class="info-card">
+            <p>Deskripsi</p>
+            <a href="kelas.html"><button>Masuk</button></a>
+          </div>
+        </div>
+      </div>
+
+      <div class="list-kelas box d-flex flex-column p-2 m-3">
+        <div class="cover-kelas">
+          <img class="img-cover" src="assets/img/icon/images-solid.svg" width="18px">
+          <img class="kelas-buatan" src="assets/img/icon/crown-solid.svg" width="18px" style="display: none;">
+        </div>
+        <div class="body-card">
+          <h3>nama-kelas</h3>
+          <div class="info-card">
+            <p>Deskripsi</p>
+            <a href="kelas.html"><button>Masuk</button></a>
+          </div>
+        </div>
+      </div>
+
+      <div class="list-kelas box d-flex flex-column p-2 m-3">
+        <div class="cover-kelas">
+          <img class="img-cover" src="assets/img/icon/images-solid.svg" width="18px">
+          <img class="kelas-buatan" src="assets/img/icon/crown-solid.svg" width="18px" style="display: none;">
+        </div>
+        <div class="body-card">
+          <h3>nama-kelas</h3>
+          <div class="info-card">
+            <p>Deskripsi</p>
+            <a href="kelas.html"><button>Masuk</button></a>
+          </div>
+        </div>
+      </div>
+    </div>
+
+  </div>
+
+  <!-- MODAL -->
+  <div id="modal-buat" class="modal box">
+    <form id="buat-kelas" name="buat-kelas" action="">
+      <h1>Buat Kelas</h1>
+      <div class="field-buat">
+        <label for="cover-img">Gambar Cover</label><br>
+        <label class="upload-btn" for="cover-img">
+          <img src="assets/img/icon/file-arrow-up-solid.svg" width="16px" class="secondary-icon">
+          <span id="file-name">Upload gambar</span>
+        </label>
+        <input id="cover-img" type="file" name="cover-img" onchange="uploadFile(this)">
+      </div>
+      <div class="field-buat">
+        <label for="judul-kelas">Judul Kelas</label>
+        <input id="judul-kelas" type="text" name="judul-kelas" placeholder="Masukkan judul kelas" required>
+      </div>
+      <div class="field-buat">
+        <label for="desksripsi-kelas">Desksripsi</label>
+        <textarea id="desksripsi-kelas" name="desksripsi-kelas" placeholder="Masukkan desksripsi"></textarea>
+      </div>
+
+      <div class="buat-btn-wrapper">
+        <div class="batal-btn" onclick="closeModal()">Batal</div>
+        <button class="buat-btn" type="submit">Buat</button>
+      </div>
+    </form>
+  </div>
+
+  <div id="modal-join" class="modal box">
+    <form id="join-kelas" name="join-kelas" action="">
+      <h1>Join Kelas</h1>
+      <div class="field-buat">
+        <label for="kode-kelas">Kode Kelas</label>
+        <input id="kode-kelas" type="text" name="kode-kelas" placeholder="Masukkan kode kelas">
+      </div>
+
+      <div class="join-btn-wrapper">
+        <div class="batal-btn" onclick="closeModal()">Batal</div>
+        <button class="join-btn" type="submit">Join</button>
+      </div>
+    </form>
+  </div>
+
+
+  <!-- Own Javascript -->
+  <script src="assets/js/header.js"></script>
+  <script src="assets/js/dashboard.js"></script>
+  <!-- Bootstrap Javascript -->
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js"
+    integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p" crossorigin="anonymous">
+  </script>
+
+</body>
+
+</html>
