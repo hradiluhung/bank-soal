@@ -588,7 +588,7 @@ footer div{
   margin-top: 80px;
   width: 75%;
   height: 100%;
-  min-height: 546px;
+  min-height: 600px;
 }
 
 .top-kelas {
@@ -647,7 +647,7 @@ footer div{
 }
 
 #list-kelas-wrap p.no-class-alert {
-  margin: 0 auto;
+  text-align: center;
   margin-top: 20px;
   font-size: 16px;
   color: var(--secondary);
@@ -1074,6 +1074,15 @@ footer div{
 #list-soal-container {
   margin-top: 200px;
   height: auto;
+  min-height: 450px;
+}
+
+#list-soal-container p.no-qna-alert {
+  margin: 20px 0;
+  font-size: 16px;
+  color: var(--secondary);
+  opacity: 0.8;
+  text-align: center;
 }
 
 #list-soal-container .qna {
