@@ -41,10 +41,9 @@ function openEditSoal() {
 }
 
 function closeModal() {
-  modalBuat.style.display = "none";
-  modalJoin.style.display = "none";
-  overlay.classList.toggle("overlayStyle");
+  if(deleteModal.style.display != "none"){
+    deleteModal.classList.toggle("delete-modalStyle");
+  }
 
-  // remove upload image cover
-  document.querySelector(".upload-btn span").innerHTML = "Upload gambar";
+  overlay.classList.toggle("overlayStyle");
 }

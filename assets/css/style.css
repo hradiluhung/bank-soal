@@ -45,6 +45,7 @@ body {
   background-color: var(--main-bg);
   box-sizing: border-box;
   font-size: 16px;
+  height: 100%;
 }
 
 h1 {
@@ -85,7 +86,7 @@ input:focus {
   filter: invert(45%) sepia(87%) saturate(2985%) hue-rotate(328deg) brightness(113%) contrast(86%);
 }
 
-/* HEADER */
+/* HEADER & FOOTER*/
 .header {
   position: fixed;
   background: var(--main-bg);
@@ -146,7 +147,7 @@ input:focus {
   width: 155px;
   height: 92px;
   justify-content: space-between;
-  position: fixed;
+  position: absolute;
   right: 40px;
   top: 80px;
   background: var(--main-bg);
@@ -208,6 +209,18 @@ input:focus {
   background: var(--primary);
   width: 20%;
   color: white;
+  font-weight: bold;
+}
+
+footer {
+  background: var(--secondary);
+  color: white;
+  font-size: 14px;
+  text-align: center;
+  padding: 20px;
+}
+
+footer div{
   font-weight: bold;
 }
 
@@ -574,6 +587,8 @@ input:focus {
 .container.kelas {
   margin-top: 80px;
   width: 75%;
+  height: 100%;
+  min-height: 546px;
 }
 
 .top-kelas {
@@ -626,9 +641,9 @@ input:focus {
 #list-kelas-wrap {
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(31%, max-content));
-  grid-gap: 16px;
   justify-content: center;
   overflow-x: hidden;
+  margin-bottom: 40px;
 }
 
 #list-kelas-wrap p.no-class-alert {

@@ -152,8 +152,8 @@
   <div id="delete-modal" class="delete-modal box">
     <h3>Apakah Anda yakin ingin menghapus kelas?</h3>
     <div>
-      <a href="kelas.html"><button class="batal-btn">Batal</button></a>
-      <a href="kelas.html"><button class="iya-btn" type="submit">Iya</button></a>
+      <button class="batal-btn" onclick="closeModal()">Batal</button>
+      <a href="dashboard.html"><button class="iya-btn" type="submit">Yakin</button></a>
     </div>
   </div>
 
@@ -162,7 +162,7 @@
     <h3>Apakah Anda yakin ingin menghapus soal?</h3>
     <div>
       <a href="kelas.html"><button class="batal-btn">Batal</button></a>
-      <a href="kelas.html"><button class="iya-btn" type="submit">Iya</button></a>
+      <a href="kelas.html"><button class="iya-btn" type="submit">Yakin</button></a>
     </div>
   </div>
 
@@ -203,7 +203,8 @@
       <h1>Edit Soal</h1>
       <div class="add-qna-wrap">
         <label for="soal">Soal</label>
-        <textarea name="soal" id="soal">Lorem ipsum dolor sit amet consectetur adipisicing elit. Aliquid, soluta ullam vel quam dolor quibusdam saepe cum porro. Necessitatibus repudiandae atque sequi modi maiores quaerat et autem deleniti recusandae odit?</textarea>
+        <textarea name="soal"
+          id="soal">Lorem ipsum dolor sit amet consectetur adipisicing elit. Aliquid, soluta ullam vel quam dolor quibusdam saepe cum porro. Necessitatibus repudiandae atque sequi modi maiores quaerat et autem deleniti recusandae odit?</textarea>
         <label class="add-image" for="add-image">
           <img src="assets/img/icon/paperclip-solid.svg" width="18px">
           Tambah gambar
@@ -213,7 +214,8 @@
 
       <div class="add-qna-wrap">
         <label for="soal">Jawaban</label>
-        <textarea name="soal" id="soal">Lorem ipsum dolor sit amet consectetur adipisicing elit. Aliquid, soluta ullam vel quam dolor quibusdam saepe cum porro.</textarea>
+        <textarea name="soal"
+          id="soal">Lorem ipsum dolor sit amet consectetur adipisicing elit. Aliquid, soluta ullam vel quam dolor quibusdam saepe cum porro.</textarea>
         <label class="add-image" for="add-image">
           <img src="assets/img/icon/paperclip-solid.svg" width="18px">
           Tambah gambar
@@ -227,6 +229,11 @@
       </div>
     </form>
   </div>
+  <footer>
+    <img class="white-icon" src="assets/img/logo/logo.svg" width="120px">
+    <span>&ndash; wadah penyimpanan semua soal materi beserta jawabannya</span>
+    <div>&copy;2022</div>
+  </footer>
 
 
   <!-- Own Javascript -->
