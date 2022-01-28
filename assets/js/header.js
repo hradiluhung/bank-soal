@@ -5,6 +5,10 @@ let dropdownProfile = document.getElementById("dropdown-profile");
 function toggleDropdown() {
   dropdownProfile.classList.toggle("dropdown-profileStyle");
   overlay.classList.toggle("overlayStyle");
+
+  if (header.style.zIndex = 8) {
+    header.style.zIndex = 9;
+  }
 }
 
 
