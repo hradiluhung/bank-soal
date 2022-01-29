@@ -45,7 +45,8 @@ body {
   background-color: var(--main-bg);
   box-sizing: border-box;
   font-size: 16px;
-  height: 100%;
+  min-height: 100vh;
+  position: relative;
 }
 
 h1 {
@@ -218,6 +219,10 @@ footer {
   font-size: 14px;
   text-align: center;
   padding: 20px;
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
 }
 
 footer div{
@@ -585,10 +590,11 @@ footer div{
 
 /* DASHBOARD */
 .container.kelas {
-  margin-top: 80px;
+  padding-top: 80px;
+  padding-bottom: 80px;
   width: 75%;
   height: 100%;
-  min-height: 600px;
+  /* min-height: 600px; */
 }
 
 .top-kelas {
@@ -872,7 +878,7 @@ footer div{
 
 @media only screen and (max-width: 600px) {
   .container.kelas {
-    margin-top: 20px;
+    padding-top: 30px;
     min-width: 360px;
   }
 
@@ -937,6 +943,7 @@ footer div{
   width: 60%;
   margin: 0 auto;
   padding: 5px;
+  padding-bottom: 100px;
 }
 
 .kelas-header {
@@ -1074,7 +1081,7 @@ footer div{
 #list-soal-container {
   margin-top: 200px;
   height: auto;
-  min-height: 450px;
+  /* min-height: 450px; */
 }
 
 #list-soal-container p.no-qna-alert {
@@ -1474,7 +1481,7 @@ footer div{
   .kelas-container {
     width: 90%;
     margin: 0 auto;
-    padding: 15px 10px;
+    padding: 15px 10px 100px;
     margin-top: 50px;
   }
 
