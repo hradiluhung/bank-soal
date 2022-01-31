@@ -39,6 +39,30 @@
   }
 }
 
+
+
+@keyframes fade-in-up {
+  0% {
+    transform: translateY(10px);
+    opacity: 0;
+  }
+
+  30% {
+    transform: translateY(0);
+    opacity: 1;
+  }
+
+  80% {
+    transform: translateY(0);
+    opacity: 1;
+  }
+
+  100% {
+    transform: translateY(10px);
+    opacity: 0;
+  }
+}
+
 /* GLOBAL SELECTOR */
 body {
   font-family: "Roboto";
@@ -143,20 +167,15 @@ input:focus {
   cursor: pointer;
 }
 
-#dropdown-profile {
+.dropdown-profile {
   display: none;
   width: 155px;
   height: 92px;
-  justify-content: space-between;
   position: absolute;
   right: 40px;
   top: 80px;
   background: var(--main-bg);
   z-index: 999;
-}
-
-.dropdown-profileStyle {
-  display: block !important;
   animation: slide-bottom 0.5s forwards;
 }
 
@@ -225,7 +244,7 @@ footer {
   right: 0;
 }
 
-footer div{
+footer div {
   font-weight: bold;
 }
 
@@ -270,6 +289,15 @@ footer div{
 
   #dropdown-profile {
     right: 20px;
+  }
+
+  footer span {
+    margin-bottom: 10px;
+  }
+
+  footer div {
+    margin-top: 10px;
+    font-weight: bold;
   }
 }
 
@@ -594,7 +622,6 @@ footer div{
   padding-bottom: 80px;
   width: 75%;
   height: 100%;
-  /* min-height: 600px; */
 }
 
 .top-kelas {
@@ -796,7 +823,7 @@ footer div{
   background: none;
 }
 
-#modal-buat label.upload-btn span{
+#modal-buat label.upload-btn span {
   margin-left: 10px;
 }
 
@@ -880,6 +907,7 @@ footer div{
   .container.kelas {
     padding-top: 30px;
     min-width: 360px;
+    padding-bottom: 100px;
   }
 
   /* TOP KELAS */
@@ -979,8 +1007,19 @@ footer div{
   cursor: pointer;
 }
 
+.kelas-header-1 span {
+  display: none;
+  margin-left: 15px;
+  animation: fade-in-up 2s forwards;
+}
+
 .kelas-header-2 .judul-kelas-wrap {
   color: var(--primary);
+}
+
+.kelas-header-2 .judul-kelas-wrap .judul-with-btn,
+.kelas-header-3 .desksripsi-wrap .desksripsi-with-btn {
+  display: flex;
 }
 
 .kelas-header-2 .judul-kelas-wrap h3 {
@@ -997,7 +1036,28 @@ footer div{
 
 .kelas-header-2 .judul-kelas-wrap img:hover {
   cursor: pointer;
-  opacity: 0.8;
+  opacity: 0.7;
+}
+
+.kelas-header-2 .judul-kelas-wrap .change-judul {
+  display: none;
+  align-items: center;
+}
+
+.kelas-header-2 .judul-kelas-wrap .change-judul input {
+  height: 40px;
+  width: 300px;
+  font-size: 28px;
+  padding: 5px 10px;
+  border: none;
+  border-bottom: 1px solid var(--primary);
+  color: var(--primary);
+  font-weight: bold;
+  margin-right: 10px;
+}
+
+.kelas-header-2 .judul-kelas-wrap .change-judul img {
+  margin-right: 5px;
 }
 
 .kelas-header-2 .search-soal-wrap {
@@ -1048,6 +1108,7 @@ footer div{
 .kelas-header-3 {
   color: var(--primary);
   height: 30px;
+  margin-top: 5px;
 }
 
 .kelas-header-3 .desksripsi-wrap {
@@ -1067,7 +1128,28 @@ footer div{
 
 .kelas-header-3 .desksripsi-wrap img:hover {
   cursor: pointer;
-  opacity: 0.8;
+  opacity: 0.7;
+}
+
+.kelas-header-3 .desksripsi-wrap .change-desksripsi {
+  width: 100%;
+  display: none;
+  align-items: center;
+}
+
+.kelas-header-3 .desksripsi-wrap .change-desksripsi input {
+  height: 30px;
+  width: 100%;
+  font-size: 16px;
+  padding: 5px 10px;
+  border: none;
+  border-bottom: 1px solid var(--primary);
+  color: var(--secondary);
+  margin-right: 10px;
+}
+
+.kelas-header-3 .desksripsi-wrap .change-desksripsi img {
+  margin-right: 5px;
 }
 
 .search-soal-wrap-md {
@@ -1103,6 +1185,7 @@ footer div{
   position: absolute;
   right: 10px;
   top: 10px;
+  z-index: 1;
   padding-left: 8px;
   padding-bottom: 3px;
   background: white;
@@ -1154,6 +1237,9 @@ footer div{
 /* KELAS MODAL */
 .delete-modal {
   display: none;
+  flex-direction: column;
+  justify-content: space-between;
+  animation: box-shadow 0.5s forwards;
   width: 25%;
   height: 140px;
   position: fixed;
@@ -1165,13 +1251,6 @@ footer div{
   font-size: 20px;
   background: white;
   padding: 15px;
-}
-
-.delete-modalStyle {
-  display: flex;
-  flex-direction: column;
-  justify-content: space-between;
-  animation: box-shadow 0.5s forwards;
 }
 
 .delete-modal h3 {
@@ -1193,10 +1272,12 @@ footer div{
   width: 50%;
 }
 
-.delete-modal button {
+.delete-modal button,
+.delete-modal a {
+  text-align: center;
   border: none;
   height: 40px;
-  width: 100%;
+  width: 50%;
   background: var(--primary);
   color: white;
   font-weight: bold;
@@ -1215,6 +1296,9 @@ footer div{
 
 .delete-soal-modal {
   display: none;
+  flex-direction: column;
+  justify-content: space-between;
+  animation: box-shadow 0.5s forwards;
   width: 25%;
   height: 140px;
   position: fixed;
@@ -1226,13 +1310,6 @@ footer div{
   font-size: 20px;
   background: white;
   padding: 15px;
-}
-
-.delete-soal-modalStyle {
-  display: flex;
-  flex-direction: column;
-  justify-content: space-between;
-  animation: box-shadow 0.5s forwards;
 }
 
 .delete-soal-modal h3 {
@@ -1254,7 +1331,8 @@ footer div{
   width: 50%;
 }
 
-.delete-soal-modal button {
+.delete-soal-modal button,
+.delete-soal-modal a {
   border: none;
   height: 40px;
   width: 100%;
@@ -1285,10 +1363,6 @@ footer div{
   margin: 0 auto;
   padding: 15px;
   z-index: 10;
-}
-
-.tambah-soal-modalStyle {
-  display: block;
   animation: box-shadow 0.5s forwards;
 }
 
@@ -1344,13 +1418,17 @@ footer div{
   justify-content: right;
 }
 
-.tambah-soal-modal .button-wrap button {
+.tambah-soal-modal .button-wrap button,
+.tambah-soal-modal .button-wrap div {
   border: none;
+  text-align: center;
   background-color: var(--primary);
   color: white;
   height: 40px;
+  line-height: 40px;
   margin-left: 10px;
   width: 80px;
+  cursor: pointer;
 }
 
 .tambah-soal-modal .button-wrap button {
@@ -1363,15 +1441,16 @@ footer div{
   font-weight: bold;
 }
 
-.tambah-soal-modal .button-wrap button:active {
+.tambah-soal-modal .button-wrap button:active,
+.tambah-soal-modal .button-wrap div:active {
   position: relative;
   top: 1px;
 }
 
 .tambah-soal-modal .button-wrap .batal-btn {
   background: white;
-  border: 1px solid var(--primary);
-  color: var(--primary);
+  border: 1px solid var(--secondary);
+  color: var(--secondary);
 }
 
 .edit-soal-modal {
@@ -1385,10 +1464,6 @@ footer div{
   margin: 0 auto;
   padding: 15px;
   z-index: 10;
-}
-
-.edit-soal-modalStyle {
-  display: block;
   animation: box-shadow 0.5s forwards;
 }
 
@@ -1455,25 +1530,30 @@ footer div{
   width: 80px;
 }
 
-.edit-soal-modal .button-wrap button {
+.edit-soal-modal .button-wrap button,
+.edit-soal-modal .button-wrap div {
   border: none;
+  text-align: center;
   background-color: var(--primary);
   color: white;
   height: 40px;
+  line-height: 40px;
   margin-left: 10px;
   width: 80px;
   font-weight: bold;
+  cursor: pointer;
 }
 
-.edit-soal-modal .button-wrap button:active {
+.edit-soal-modal .button-wrap button:active,
+.edit-soal-modal .button-wrap div:active {
   position: relative;
   top: 1px;
 }
 
 .edit-soal-modal .button-wrap .batal-btn {
   background: white;
-  border: 1px solid var(--primary);
-  color: var(--primary);
+  border: 1px solid var(--secondary);
+  color: var(--secondary);
 }
 
 
@@ -1541,7 +1621,6 @@ footer div{
 
   .delete-soal-modal {
     width: 35%;
-    top: 420px;
   }
 
   .delete-soal-modal h3 {
@@ -1565,6 +1644,7 @@ footer div{
     margin-top: 0;
     padding-left: 0;
     padding-right: 0;
+    padding-bottom: 120px;
   }
 
   .kelas-header {

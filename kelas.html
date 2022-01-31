@@ -18,7 +18,7 @@
 
 <body>
 
-  <div id="overlay"></div>
+  <div id="overlay" onclick="closeModal()"></div>
 
   <div class="header-wrap d-flex flex-column">
     <div id="header" class="header d-flex justify-content-between align-items-center">
@@ -32,7 +32,7 @@
         onclick="toggleDropdown()">
     </div>
 
-    <div id="dropdown-profile">
+    <div id="dropdown-profile" class="dropdown-profile">
       <ul>
         <a href="edit-profile.html">
           <li class="dropdown">Edit profil</li>
@@ -50,13 +50,24 @@
 
       <div class="kelas-header-1 d-flex">
         <p id="kode-kelas">kodekelas123</p>
-        <img class="secondary-icon" src="assets/img/icon/copy-solid.svg" width="12px">
+        <img class="secondary-icon" src="assets/img/icon/copy-solid.svg" width="12px" onclick="copyClassCode()">
+        <span>kode disalin!</span>
       </div>
 
       <div class="kelas-header-2 d-flex justify-content-between">
         <div class="judul-kelas-wrap d-flex">
-          <h3 id="judul-kelas">judul-kelas</h3>
-          <img class="primary-icon" src="assets/img/icon/edit-solid.svg" width="18px">
+          <div id="judul-with-btn" class="judul-with-btn">
+            <h3 id="judul-kelas">judul-kelas</h3>
+            <img class="primary-icon edit-text-btn" src="assets/img/icon/edit-solid.svg" width="18px"
+              onclick="editJudul()">
+          </div>
+          <div id="change-judul" class="change-judul">
+            <input type="text" onkeypress="saveJudulEnter(event)" maxlength="25">
+            <img id="batal-edit-btn" class="red-icon" src="assets/img/icon/circle-xmark-solid.svg" width="18px"
+              onclick="cancelJudul()">
+            <img id="simpan-edit-btn" class="primary-icon" src="assets/img/icon/circle-check-solid.svg" width="18px"
+              onclick="saveJudul()">
+          </div>
         </div>
         <div class="d-flex">
           <div class="search-soal-wrap me-4 mt-2">
@@ -76,8 +87,17 @@
 
       <div class="kelas-header-3">
         <div class="desksripsi-wrap d-flex">
-          <p id="desksripsi">deskripsi</p>
-          <img class="primary-icon" src="assets/img/icon/edit-solid.svg" width="14px">
+          <div id="desksripsi-with-btn" class="desksripsi-with-btn">
+            <p id="desksripsi">deskripsi</p>
+            <img class="primary-icon" src="assets/img/icon/edit-solid.svg" width="14px" onclick="editDesksripsi()">
+          </div>
+          <div id="change-desksripsi" class="change-desksripsi">
+            <input type="text" onkeypress="saveDesksripsiEnter(event)">
+            <img id="batal-edit-btn" class="red-icon" src="assets/img/icon/circle-xmark-solid.svg" width="18px"
+              onclick="cancelDesksripsi()">
+            <img id="simpan-edit-btn" class="primary-icon" src="assets/img/icon/circle-check-solid.svg" width="18px"
+              onclick="saveDesksripsi()">
+          </div>
         </div>
       </div>
 
@@ -113,38 +133,32 @@
       <!-- <p class="no-qna-alert">Belum ada soal</p> -->
 
       <!-- JIKA SUDAH ADA SOAL -->
-      <div class="qna box">
+      <div id="qna-1" class="qna box">
         <div class="qna-btn-wrap">
-          <img class="primary-icon" src="assets/img/icon/edit-solid.svg" width="19px" onclick="openEditSoal()">
+          <img id="edit-btn-1" class="primary-icon" src="assets/img/icon/edit-solid.svg" width="19px" onclick="openEditSoal(this.getAttribute('id'))">
           <img class="red-icon" src="assets/img/icon/trash-alt-solid.svg" width="16px" onclick="openHapusSoal()">
         </div>
         <div class="soal-wrap">
           <img src="assets/img/qna/soal/soal1.jpg">
-          <h3 id="soal">Lorem ipsum dolor sit amet consectetur adipisicing elit. Aliquid, soluta ullam vel quam dolor
-            quibusdam saepe cum porro. Necessitatibus repudiandae atque sequi modi maiores quaerat et autem deleniti
-            recusandae odit?</h3>
+          <h3 id="soal-1">Lorem ipsum dolor sit amet consectetur adipisicing elit. Aliquid, soluta ullam vel quam dolor quibusdam saepe cum porro. Necessitatibus repudiandae atque sequi modi maiores quaerat et autem deleniti recusandae odit?</h3>
         </div>
         <div class="jawaban-wrap">
-          <h4 id="jawaban">Lorem ipsum dolor sit amet consectetur adipisicing elit. Aliquid, soluta ullam vel quam dolor
-            quibusdam saepe cum porro.</h4>
+          <h4 id="jawaban-1">Lorem ipsum dolor sit amet consectetur adipisicing elit. Aliquid, soluta ullam vel quam dolor quibusdam saepe cum porro.</h4>
           <img src="">
         </div>
       </div>
 
-      <div class="qna box">
+      <div id="qna-2" class="qna box">
         <div class="qna-btn-wrap">
-          <img class="primary-icon" src="assets/img/icon/edit-solid.svg" width="19px" onclick="openEditSoal()">
-          <img class="red-icon" src="assets/img/icon/trash-alt-solid.svg" width="16px">
+          <img id="edit" class="primary-icon" src="assets/img/icon/edit-solid.svg" width="19px" onclick="openEditSoal(this.getAttribute('id'))">
+          <img class="red-icon" src="assets/img/icon/trash-alt-solid.svg" width="16px" onclick="openHapusSoal()">
         </div>
         <div class="soal-wrap">
           <img src="">
-          <h3 id="soal">Lorem ipsum dolor sit amet consectetur adipisicing elit. Aliquid, soluta ullam vel quam dolor
-            quibusdam saepe cum porro. Necessitatibus repudiandae atque sequi modi maiores quaerat et autem deleniti
-            recusandae odit?</h3>
+          <h3 id="soal-2">Berapa harga silverqueen?</h3>
         </div>
         <div class="jawaban-wrap">
-          <h4 id="jawaban">Lorem ipsum dolor sit amet consectetur adipisicing elit. Aliquid, soluta ullam vel quam dolor
-            quibusdam saepe cum porro.</h4>
+          <h4 id="jawaban-2">10000 - 25000</h4>
           <img src="">
         </div>
       </div>
@@ -166,7 +180,7 @@
   <div id="delete-soal-modal" class="delete-soal-modal box">
     <h3>Apakah Anda yakin ingin menghapus soal?</h3>
     <div>
-      <a href="kelas.html"><button class="batal-btn">Batal</button></a>
+      <button class="batal-btn" onclick="closeModal()">Batal</button>
       <a href="kelas.html"><button class="iya-btn" type="submit">Yakin</button></a>
     </div>
   </div>
@@ -196,7 +210,7 @@
       </div>
 
       <div class="button-wrap">
-        <a href="kelas.html"><button class="batal-btn">Batal</button></a>
+        <div class="batal-btn" onclick="closeModal()">Batal</div>
         <a href="kelas.html"><button class="simpan-btn" type="submit">Simpan</button></a>
       </div>
     </form>
@@ -209,7 +223,7 @@
       <div class="add-qna-wrap">
         <label for="soal">Soal</label>
         <textarea name="soal"
-          id="soal">Lorem ipsum dolor sit amet consectetur adipisicing elit. Aliquid, soluta ullam vel quam dolor quibusdam saepe cum porro. Necessitatibus repudiandae atque sequi modi maiores quaerat et autem deleniti recusandae odit?</textarea>
+          id="soal-edited"></textarea>
         <label class="add-image" for="add-image">
           <img src="assets/img/icon/paperclip-solid.svg" width="18px">
           Tambah gambar
@@ -220,7 +234,7 @@
       <div class="add-qna-wrap">
         <label for="soal">Jawaban</label>
         <textarea name="soal"
-          id="soal">Lorem ipsum dolor sit amet consectetur adipisicing elit. Aliquid, soluta ullam vel quam dolor quibusdam saepe cum porro.</textarea>
+          id="jawaban-edited"></textarea>
         <label class="add-image" for="add-image">
           <img src="assets/img/icon/paperclip-solid.svg" width="18px">
           Tambah gambar
@@ -229,11 +243,12 @@
       </div>
 
       <div class="button-wrap">
-        <a href="kelas.html"><button class="batal-btn">Batal</button></a>
+        <div class="batal-btn" onclick="closeModal()">Batal</div>
         <a href="kelas.html"><button class="simpan-btn" type="submit">Simpan</button></a>
       </div>
     </form>
   </div>
+
   <footer>
     <img class="white-icon" src="assets/img/logo/logo.svg" width="120px">
     <span>&ndash; wadah penyimpanan semua soal materi beserta jawabannya</span>

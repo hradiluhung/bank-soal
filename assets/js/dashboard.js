@@ -30,6 +30,9 @@ function openJoinKelas() {
 function closeModal() {
   modalBuat.style.display = "none";
   modalJoin.style.display = "none";
+  dropdownProfile.style.display = "none";
+  dropdownIsOpen = false;
+  
   overlay.classList.toggle("overlayStyle");
 
   // remove upload image cover
