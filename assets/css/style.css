@@ -268,7 +268,7 @@ footer div {
 
 @media only screen and (max-width: 600px) {
   .header {
-    position: static;
+    position: fixed;
     width: 100%;
     padding: 0 20px;
     margin: 0;
@@ -905,7 +905,7 @@ footer div {
 
 @media only screen and (max-width: 600px) {
   .container.kelas {
-    padding-top: 30px;
+    padding-top: 100px;
     min-width: 360px;
     padding-bottom: 100px;
   }
