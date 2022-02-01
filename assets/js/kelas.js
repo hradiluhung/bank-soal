@@ -47,7 +47,7 @@ function openEditSoal(editBtnId) {
 
   let soalEdited = document.getElementById("soal-edited");
   let jawabanEdited = document.getElementById("jawaban-edited");
-  
+
   soalEdited.value = selectedQuestion.innerHTML;
   jawabanEdited.value = selectedAns.innerHTML;
 }
@@ -62,8 +62,83 @@ function closeModal() {
   dropdownIsOpen = false;
 
   overlay.classList.toggle("overlayStyle");
+
+  //reset input field
+  let soal = document.getElementById("soal");
+  soal.value = "";
+  let jawaban = document.getElementById("jawaban");
+  jawaban.value = "";
+  let soalImage = document.getElementById("add-soal-image");
+  soalImage.value = null;
+  let jawabanImage = document.getElementById("add-jawaban-image");
+  jawabanImage.value = null;
+
+  // reset uploaded image qna label
+  document.getElementById("tambah-gambar-soal-btn").style.display = "inline";
+  document.getElementById("soal-inputted-img").style.display = "none";
+
+  document.getElementById("tambah-gambar-jawaban-btn").style.display = "inline";
+  document.getElementById("jawaban-inputted-img").style.display = "none";
 }
 
+// UPLOADED IMAGE NAME CATCH
+
+function uploadSoalFile(target) {
+  document.getElementById("soal-img-name").innerHTML = target.files[0].name;
+
+  document.getElementById("soal-inputted-img").style.display = "flex";
+  document.getElementById("tambah-gambar-soal-btn").style.display = "none";
+}
+
+function uploadJawabanFile(target) {
+  document.getElementById("jawaban-img-name").innerHTML = target.files[0].name;
+
+  document.getElementById("jawaban-inputted-img").style.display = "flex";
+  document.getElementById("tambah-gambar-jawaban-btn").style.display = "none";
+}
+
+//DELETE INPUTTED
+function deleteInputtedFile(target) {
+  let konfirmasiHapus = target.parentNode.nextElementSibling;
+  let konfirmasiHapusSm = target.parentNode.parentNode.parentNode.nextElementSibling;
+
+  if (window.screen.width <= 600) {
+    konfirmasiHapusSm.style.display = "block";
+  } else {
+    konfirmasiHapus.style.display = "flex";
+  }
+}
+
+function batalHapus(target) {
+  target.parentNode.style.display = "none";
+}
+
+function yakinHapus(target) {
+  target.parentNode.style.display = "none";
+
+  if(target.parentNode.id == "konfirmasi-hapus-img"){
+    //reset img name
+    target.parentNode.previousElementSibling.firstElementChild.innerHTML = "";
+    //hide img name container
+    target.parentNode.parentNode.style.display = "none";
+    //show tambah gambar btn
+    target.parentNode.parentNode.previousElementSibling.lastElementChild.style.display = "inline"; 
+    //reset input file value
+    target.parentNode.parentNode.nextElementSibling.value = null;
+  }else {
+    //reset img name
+    target.parentNode.previousElementSibling.firstElementChild.nextElementSibling.firstElementChild.firstElementChild.innerHTML = "";
+    //hide img name container
+    target.parentNode.previousElementSibling.firstElementChild.nextElementSibling.style.display = "none";
+    //show tambah gambar btn
+    target.parentNode.previousElementSibling.firstElementChild.lastElementChild.style.display = "inline"; 
+    //reset input file value
+    target.parentNode.previousElementSibling.lastElementChild.value = null;
+  }
+}
+
+
+// COPY CLASS CODE
 function copyClassCode() {
   let copiedText = document.getElementById("kode-kelas");
   navigator.clipboard.writeText(copiedText.innerHTML);
@@ -106,7 +181,7 @@ function saveJudulEnter(e) {
   }
 }
 
-function cancelJudul(){
+function cancelJudul() {
   judulWithBtn.style.display = "flex";
   changeJudul.style.display = "none";
 }
@@ -141,8 +216,12 @@ function saveDesksripsiEnter(e) {
   }
 }
 
-function cancelDesksripsi(){
+function cancelDesksripsi() {
   desksripsilWithBtn.style.display = "flex";
   changeDesksripsi.style.display = "none";
 }
 
+//todo
+//scroll textfield up when keyboard popsup
+//change delete kelas btn into setting
+//notification after reset password

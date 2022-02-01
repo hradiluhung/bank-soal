@@ -35,7 +35,17 @@ function closeModal() {
   
   overlay.classList.toggle("overlayStyle");
 
-  // remove upload image cover
+  //remove input
+  let inputJudulKelas = document.getElementById("judul-kelas");
+  inputJudulKelas.value = "";
+  let inputDesksripsiKelas = document.getElementById("desksripsi-kelas");
+  inputDesksripsiKelas.value = "";
+  let inputGambarKelas = document.getElementById("cover-img");
+  inputGambarKelas.value = null;
+  let inputKodeKelas = document.getElementById("kode-kelas");
+  inputKodeKelas.value = "";
+
+  // reset uploaded image cover label
   document.querySelector(".upload-btn span").innerHTML = "Upload gambar";
 }
 

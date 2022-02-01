@@ -805,6 +805,12 @@ footer div {
   margin: 5px 0 15px;
 }
 
+#modal-buat input:focus,
+#modal-buat textarea:focus,
+#modal-join input:focus {
+  outline: none;
+}
+
 #modal-buat input[type="file"] {
   height: 50px;
   border: none;
@@ -817,10 +823,10 @@ footer div {
 #modal-buat label.upload-btn {
   height: 40px;
   line-height: 40px;
-  margin: 5px 0 20px 15px;
+  margin: 5px 0 20px;
   padding: 0 10px;
   cursor: pointer;
-  background: none;
+  background: var(--main-bg);
 }
 
 #modal-buat label.upload-btn span {
@@ -1393,7 +1399,7 @@ footer div {
   border-bottom: 1px solid var(--primary);
   background: var(--main-bg);
   padding: 10px;
-  margin-bottom: 10px;
+  margin-bottom: 15px;
 }
 
 .tambah-soal-modal .add-qna-wrap textarea:focus {
@@ -1401,16 +1407,88 @@ footer div {
 }
 
 .tambah-soal-modal .add-qna-wrap .add-image {
-  margin-left: 5px;
-  color: var(--secondary);
+  color: var(--primary);
   opacity: 0.6;
   font-size: 14px;
-  width: 130px;
+  margin: 5px 0;
+  margin-right: 10px;
 }
 
 .tambah-soal-modal .add-qna-wrap .add-image:hover {
   opacity: 0.8;
   cursor: pointer;
+}
+
+.tambah-soal-modal .add-qna-wrap #soal-inputted-img,
+.tambah-soal-modal .add-qna-wrap #jawaban-inputted-img {
+  display: none;
+  align-items: center;
+}
+
+.tambah-soal-modal .add-qna-wrap #soal-img-name,
+.tambah-soal-modal .add-qna-wrap #jawaban-img-name {
+  color: var(--primary);
+  font-weight: bold;
+  font-size: 14px;
+  margin-right: 10px;
+  background: var(--main-bg);
+  padding: 10px;
+  display: block;
+  max-width: 200px;
+  text-overflow: ellipsis;
+  overflow: hidden;
+  white-space: nowrap;
+}
+
+.tambah-soal-modal .add-qna-wrap .delete-img-btn {
+  opacity: 0.6;
+}
+
+.tambah-soal-modal .add-qna-wrap .delete-img-btn:hover {
+  opacity: 0.8;
+  cursor: pointer;
+}
+
+.tambah-soal-modal .add-qna-wrap #soal-inputted-img,
+.tambah-soal-modal .add-qna-wrap #jawaban-inputted-img {
+  display: none;
+}
+
+.konfirmasi-hapus-img {
+  display: none;
+  border-left: 1px solid var(--primary);
+  animation: fade-in 0.5s forwards;
+}
+
+.konfirmasi-hapus-img-sm {
+  display: none;
+  animation: fade-in 0.5s forwards;
+}
+
+.konfirmasi-hapus-img {
+  display: none;
+  align-items: center;
+  margin-left: 10px;
+}
+
+.konfirmasi-hapus-img span {
+  margin-left: 10px;
+  color: var(--primary);
+}
+
+span#yakin-hapus-img,
+span#tidak-hapus-img {
+  text-decoration: underline;
+}
+
+span#yakin-hapus-img:hover,
+span#tidak-hapus-img:hover {
+  cursor: pointer;
+}
+
+.konfirmasi-hapus-img span#yakin-hapus-img,
+.konfirmasi-hapus-img-sm span#yakin-hapus-img {
+  font-weight: bold;
 }
 
 .tambah-soal-modal .button-wrap {
@@ -1612,7 +1690,6 @@ footer div {
 
   .delete-modal {
     width: 35%;
-    top: 420px;
   }
 
   .delete-modal h3 {
@@ -1642,6 +1719,7 @@ footer div {
   .kelas-container {
     width: 100%;
     margin-top: 0;
+    padding-top: 70px;
     padding-left: 0;
     padding-right: 0;
     padding-bottom: 120px;
@@ -1777,6 +1855,19 @@ footer div {
   .edit-soal-modal {
     width: 95%;
     top: 120px;
+    max-height: 500px;
+    overflow-y: scroll;
+  }
+
+  .konfirmasi-hapus-img-sm {
+    display: none;
+    margin-top: 5px;
+    margin-left: 0;
+  }
+
+  .konfirmasi-hapus-img-sm span {
+    margin-left: 5px;
+    color: var(--primary);
   }
 }
 
