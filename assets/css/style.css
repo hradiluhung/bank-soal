@@ -92,7 +92,7 @@ input:focus {
 }
 
 .box {
-  animation: box-shadow 1.5s forwards;
+  animation: box-shadow 2s forwards;
 }
 
 .primary-icon {
@@ -1169,7 +1169,6 @@ footer div {
 #list-soal-container {
   margin-top: 200px;
   height: auto;
-  /* min-height: 450px; */
 }
 
 #list-soal-container p.no-qna-alert {
@@ -1419,14 +1418,18 @@ footer div {
   cursor: pointer;
 }
 
-.tambah-soal-modal .add-qna-wrap #soal-inputted-img,
-.tambah-soal-modal .add-qna-wrap #jawaban-inputted-img {
+.add-qna-wrap #soal-inputted-img,
+.add-qna-wrap #jawaban-inputted-img,
+.add-qna-wrap #edit-soal-inputted-img,
+.add-qna-wrap #edit-jawaban-inputted-img {
   display: none;
   align-items: center;
 }
 
-.tambah-soal-modal .add-qna-wrap #soal-img-name,
-.tambah-soal-modal .add-qna-wrap #jawaban-img-name {
+.add-qna-wrap #soal-img-name,
+.add-qna-wrap #jawaban-img-name,
+.add-qna-wrap #edit-soal-img-name,
+.add-qna-wrap #edit-jawaban-img-name {
   color: var(--primary);
   font-weight: bold;
   font-size: 14px;
@@ -1440,22 +1443,19 @@ footer div {
   white-space: nowrap;
 }
 
-.tambah-soal-modal .add-qna-wrap .delete-img-btn {
+.add-qna-wrap .delete-img-btn {
   opacity: 0.6;
 }
 
-.tambah-soal-modal .add-qna-wrap .delete-img-btn:hover {
+.add-qna-wrap .delete-img-btn:hover {
   opacity: 0.8;
   cursor: pointer;
 }
 
-.tambah-soal-modal .add-qna-wrap #soal-inputted-img,
-.tambah-soal-modal .add-qna-wrap #jawaban-inputted-img {
-  display: none;
-}
-
 .konfirmasi-hapus-img {
   display: none;
+  align-items: center;
+  margin-left: 10px;
   border-left: 1px solid var(--primary);
   animation: fade-in 0.5s forwards;
 }
@@ -1463,12 +1463,6 @@ footer div {
 .konfirmasi-hapus-img-sm {
   display: none;
   animation: fade-in 0.5s forwards;
-}
-
-.konfirmasi-hapus-img {
-  display: none;
-  align-items: center;
-  margin-left: 10px;
 }
 
 .konfirmasi-hapus-img span {
@@ -1573,7 +1567,7 @@ span#tidak-hapus-img:hover {
   background: var(--main-bg);
   padding: 10px;
   margin-bottom: 10px;
-  color: rgba(74, 85, 104, 0.7);
+  color: rgba(74, 85, 104, 0.8);
 }
 
 .edit-soal-modal .add-qna-wrap textarea:focus {
@@ -1582,11 +1576,11 @@ span#tidak-hapus-img:hover {
 }
 
 .edit-soal-modal .add-qna-wrap .add-image {
-  margin-left: 5px;
-  color: var(--secondary);
+  color: var(--primary);
   opacity: 0.6;
   font-size: 14px;
-  width: 130px;
+  margin: 5px 0;
+  margin-right: 10px;
 }
 
 .edit-soal-modal .add-qna-wrap .add-image:hover {

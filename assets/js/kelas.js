@@ -41,9 +41,33 @@ function openEditSoal(editBtnId) {
 
   let selectedQNA = document.getElementById(editBtnId).parentNode.parentNode;
   let selectedQuestion = selectedQNA.firstElementChild.nextElementSibling.lastElementChild;
-  let selectedQuestionImg = selectedQNA.firstElementChild.nextElementSibling.firstElementChild;
+  //catch soal image name from some folders
+  let questionImgSrcArray = selectedQNA.firstElementChild.nextElementSibling.firstElementChild.attributes[0].textContent.split("/");
+  let selectedQuestionImg = questionImgSrcArray[questionImgSrcArray.length - 1];
+
   let selectedAns = selectedQNA.lastElementChild.firstElementChild;
-  let selectedAnsImg = selectedQNA.lastElementChild.lastElementChild;
+  //catch jawaban image name from some folders
+  let AnsImgSrcArray = selectedQNA.lastElementChild.lastElementChild.attributes[0].textContent.split("/");
+  let selectedAnsImg = AnsImgSrcArray[AnsImgSrcArray.length - 1];
+  
+
+  //reset inputted image
+  document.querySelector("#edit-soal-inputted-img").style.display = "none";
+  document.querySelector("#edit-tambah-gambar-soal-btn").style.display = "inline";
+  document.querySelector("#edit-jawaban-inputted-img").style.display = "none";
+  document.querySelector("#edit-tambah-gambar-jawaban-btn").style.display = "inline";
+
+  if (selectedQuestionImg) {
+    document.querySelector("#edit-soal-inputted-img").style.display = "flex";
+    document.querySelector("#edit-tambah-gambar-soal-btn").style.display = "none";
+    document.querySelector("#edit-soal-inputted-img #edit-soal-img-name").innerHTML = selectedQuestionImg;
+  }
+
+  if (selectedAnsImg) {
+    document.querySelector("#edit-jawaban-inputted-img").style.display = "flex";
+    document.querySelector("#edit-tambah-gambar-jawaban-btn").style.display = "none";
+    document.querySelector("#edit-jawaban-inputted-img #edit-jawaban-img-name").innerHTML = selectedAnsImg;
+  }
 
   let soalEdited = document.getElementById("soal-edited");
   let jawabanEdited = document.getElementById("jawaban-edited");
@@ -73,6 +97,11 @@ function closeModal() {
   let jawabanImage = document.getElementById("add-jawaban-image");
   jawabanImage.value = null;
 
+  let editSoalImgName = document.getElementById("edit-soal-img-name");
+  editSoalImgName.innerHTML = "";
+  let editJawabanImgName = document.getElementById("edit-jawaban-img-name");
+  editJawabanImgName.innerHTML = "";
+
   // reset uploaded image qna label
   document.getElementById("tambah-gambar-soal-btn").style.display = "inline";
   document.getElementById("soal-inputted-img").style.display = "none";
@@ -85,16 +114,22 @@ function closeModal() {
 
 function uploadSoalFile(target) {
   document.getElementById("soal-img-name").innerHTML = target.files[0].name;
+  document.getElementById("edit-soal-img-name").innerHTML = target.files[0].name;
 
   document.getElementById("soal-inputted-img").style.display = "flex";
+  document.getElementById("edit-soal-inputted-img").style.display = "flex";
   document.getElementById("tambah-gambar-soal-btn").style.display = "none";
+  document.getElementById("edit-tambah-gambar-soal-btn").style.display = "none";
 }
 
 function uploadJawabanFile(target) {
   document.getElementById("jawaban-img-name").innerHTML = target.files[0].name;
+  document.getElementById("edit-jawaban-img-name").innerHTML = target.files[0].name;
 
   document.getElementById("jawaban-inputted-img").style.display = "flex";
+  document.getElementById("edit-jawaban-inputted-img").style.display = "flex";
   document.getElementById("tambah-gambar-jawaban-btn").style.display = "none";
+  document.getElementById("edit-tambah-gambar-jawaban-btn").style.display = "none";
 }
 
 //DELETE INPUTTED
@@ -116,22 +151,22 @@ function batalHapus(target) {
 function yakinHapus(target) {
   target.parentNode.style.display = "none";
 
-  if(target.parentNode.id == "konfirmasi-hapus-img"){
+  if (target.parentNode.id == "konfirmasi-hapus-img") {
     //reset img name
     target.parentNode.previousElementSibling.firstElementChild.innerHTML = "";
     //hide img name container
     target.parentNode.parentNode.style.display = "none";
     //show tambah gambar btn
-    target.parentNode.parentNode.previousElementSibling.lastElementChild.style.display = "inline"; 
+    target.parentNode.parentNode.previousElementSibling.lastElementChild.style.display = "inline";
     //reset input file value
     target.parentNode.parentNode.nextElementSibling.value = null;
-  }else {
+  } else {
     //reset img name
     target.parentNode.previousElementSibling.firstElementChild.nextElementSibling.firstElementChild.firstElementChild.innerHTML = "";
     //hide img name container
     target.parentNode.previousElementSibling.firstElementChild.nextElementSibling.style.display = "none";
     //show tambah gambar btn
-    target.parentNode.previousElementSibling.firstElementChild.lastElementChild.style.display = "inline"; 
+    target.parentNode.previousElementSibling.firstElementChild.lastElementChild.style.display = "inline";
     //reset input file value
     target.parentNode.previousElementSibling.lastElementChild.value = null;
   }
