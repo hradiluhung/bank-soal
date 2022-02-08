@@ -79,8 +79,8 @@
           <button class="tambah-btn" onclick="openTambahSoal()">
             <img src="assets/img/icon/plus-square-solid.svg" width="18px">
           </button>
-          <button class="delete-btn" onclick="openHapusKelas()">
-            <img class="red-icon" src="assets/img/icon/trash-alt-solid.svg" width="18px">
+          <button class="delete-btn" onclick="openSettingKelas()">
+            <img class="primary-icon" src="assets/img/icon/gear-solid.svg" width="20px">
           </button>
         </div>
       </div>
@@ -122,8 +122,8 @@
       <button class="tambah-btn-sm" onclick="openTambahSoal()">
         <img src="assets/img/icon/plus-square-solid.svg" width="16px">
       </button>
-      <button class="delete-btn-sm" onclick="openHapusKelas()">
-        <img class="red-icon" src="assets/img/icon/trash-alt-solid.svg" width="16px">
+      <button class="delete-btn-sm" onclick="openSettingKelas()">
+        <img class="primary-icon" src="assets/img/icon/gear-solid.svg" width="18px">
       </button>
     </div>
 
@@ -165,22 +165,71 @@
         </div>
       </div>
 
+      <div id="qna-3" class="qna box">
+        <div class="qna-btn-wrap">
+          <img id="edit" class="primary-icon" src="assets/img/icon/edit-solid.svg" width="19px"
+            onclick="openEditSoal(this.getAttribute('id'))">
+          <img class="red-icon" src="assets/img/icon/trash-alt-solid.svg" width="16px" onclick="openHapusSoal()">
+        </div>
+        <div class="soal-wrap">
+          <img src="">
+          <h3 id="soal-2">Apa yang membuat Janji Jiwa menarik?</h3>
+        </div>
+        <div class="jawaban-wrap">
+          <h4 id="jawaban-2">Janji manisnya</h4>
+          <img src="">
+        </div>
+      </div>
+
     </div>
   </div>
 
   <!-- MODAL -->
-  <!-- delete kelas modal -->
-  <div id="delete-modal" class="delete-modal box">
-    <h3>Apakah Anda yakin ingin menghapus kelas?</h3>
-    <div>
-      <button class="batal-btn" onclick="closeModal()">Batal</button>
-      <a href="dashboard.html"><button class="iya-btn" type="submit">Yakin</button></a>
+  <!-- setting kelas modal -->
+  <div id="setting-modal" class="setting-modal box">
+    
+    <div class="choices">
+      <div class="d-flex justify-content-end mb-3">
+        <img class="close-modal-btn primary-icon" src="assets/img/icon/circle-xmark-solid.svg" width="18px" onclick="closeModal()">
+      </div>
+      <div class="d-flex flex-column">
+        <!-- admin -->
+        <button onclick="openEditCover()">Edit Cover</button>
+        <a href="dashboard.html">
+          <button>Hapus kelas</button>
+        </a>
+  
+        <!-- member -->
+        <!-- <a href="dashboard.html">
+          <button>Keluar kelas</button>
+        </a> -->
+      </div>
     </div>
+
+    <div class="edit-cover">
+      <div class="d-flex justify-content-between mb-3">
+        <img class="primary-icon" src="assets/img/icon/arrow-left-long-solid.svg" width="20px" onclick="backToSettingModal()">
+        <img class="close-modal-btn primary-icon" src="assets/img/icon/circle-xmark-solid.svg" width="18px" onclick="closeModal()">
+      </div>
+      <div class="d-flex flex-column">
+        <h3>Edit Cover</h3>
+        <label class="upload-btn" for="cover-img">
+          <img src="assets/img/icon/paperclip-solid.svg" width="16px" class="secondary-icon">
+          <span id="cover-img-name">Upload gambar</span>
+        </label>
+        <form action="kelas.html">
+          <input id="cover-img" type="file" name="cover-img" onchange="uploadFile(this)" hidden>
+          <div class="batal-simpan-cover" onclick="closeModal()">Batal</div>
+          <button type="submit">Simpan</button>
+        </form>
+      </div>
+    </div>
+    
   </div>
 
   <!-- delete soal modal -->
   <div id="delete-soal-modal" class="delete-soal-modal box">
-    <h3>Apakah Anda yakin ingin menghapus soal?</h3>
+    <h3>Apakah Anda yakin ingin menghapus soal ini?</h3>
     <div>
       <button class="batal-btn" onclick="closeModal()">Batal</button>
       <a href="kelas.html"><button class="iya-btn" type="submit">Yakin</button></a>

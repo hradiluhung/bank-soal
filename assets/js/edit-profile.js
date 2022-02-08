@@ -27,3 +27,22 @@ function showKeamanan() {
   keamanan.style.display = "block";
   umum.style.display = "none";
 }
+
+function closeModal() {
+  dropdownProfile.style.display = "none";
+  dropdownIsOpen = false;
+  
+  overlay.classList.toggle("overlayStyle");
+}
+
+// NEW PASSWORD CONFIRMATION VALIDATION
+function validatePassword() {
+  const newPassword = document.getElementById("new-password");
+  const newConfirmPassword = document.getElementById("new-password-confirm");
+
+  if (newPassword.value != newConfirmPassword.value) {
+    newConfirmPassword.setCustomValidity("Password tidak sama!");
+  } else {
+    newConfirmPassword.setCustomValidity("");
+  }
+}

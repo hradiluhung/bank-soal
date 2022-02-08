@@ -18,7 +18,7 @@
 
 <body>
 
-  <div id="overlay"></div>
+  <div id="overlay" onclick="closeModal()"></div>
 
   <div class="header-wrap d-flex flex-column">
     <div id="header" class="header d-flex justify-content-between align-items-center">
@@ -28,18 +28,20 @@
         </div>
       </a>
 
-      <img id="profile-ava" class="profile-ava" src="assets/img/icon/profile-ava-solid.svg" width="18px"
-        onclick="toggleDropdown()">
+      <div class="d-flex">
+        <img id="profile-ava" class="profile-ava" src="assets/img/icon/profile-ava-solid.svg" width="18px"
+          onclick="toggleDropdown()">
+      </div>
     </div>
 
-    <div id="dropdown-profile" style="height: 46px;">
+    <div id="dropdown-profile" class="dropdown-profile">
       <ul>
         <a href="index.html">
-          <li class="dropdown" style="height: 100%;;">Logout</li>
+          <li class="dropdown">Logout</li>
         </a>
       </ul>
     </div>
-  </div><!-- END OF HEADER -->
+  </div><!-- END OF HEADER-->
 
   <div class="edit-profile-container box clearfix">
 
@@ -48,7 +50,7 @@
       <li id="keamanan-top-sm" onclick="showKeamanan()">Keamanan</li>
     </ul>
 
-    <h1>Edit Profile</h1>
+    
     <div class="sidebar">
       <ul>
         <li id="umum-side" class="active" onclick="showUmum()">Umum</li>
@@ -57,6 +59,7 @@
     </div>
     <div class="body">
       <div id="umum" class="umum">
+        <h1 style="margin-left: 25px;">Edit Profile</h1>
         <form action="">
           <div class="photo">
             <img src="assets/img/icon/user-solid-white.svg">
@@ -66,20 +69,17 @@
           <div class="biodata">
             <div class="input-field">
               <label for="fullname">Nama Lengkap</label>
-              <input id="fullname" type="text"
-              value="Lorem ipsum dolor sit amet">
+              <input id="fullname" type="text" value="Lorem ipsum dolor sit amet">
             </div>
 
             <div class="input-field">
               <label for="email">Email</label>
-              <input id="email" type="email"
-              value="lorem@mail.com">
+              <input id="email" type="email" value="lorem@mail.com">
             </div>
 
             <div class="input-field">
               <label for="username">Username</label>
-              <input id="username" type="text"
-              value="Lorem ipsum dolor sit amet">
+              <input id="username" type="text" value="Lorem ipsum dolor sit amet">
             </div>
 
             <div class="button-wrap">
@@ -91,22 +91,20 @@
       </div>
       <div id="keamanan" class="keamanan">
         <form action="">
+          <h1>Edit Profile</h1>
           <div class="input-field">
             <label for="old-password">Password Lama</label>
-            <input id="old-password" type="password"
-            placeholder="Masukkan password lama">
+            <input id="old-password" type="password" placeholder="Masukkan password lama" required>
           </div>
 
           <div class="input-field">
             <label for="new-password">Password Baru</label>
-            <input id="new-password" type="password"
-            placeholder="Masukkan password baru">
+            <input id="new-password" type="password" placeholder="Masukkan password baru (min 8 karakter)" minlength="8" onchange="validatePassword()" required>
           </div>
-          
+
           <div class="input-field">
             <label for="new-password-confirm">Konfirmasi Password Baru</label>
-            <input id="new-password-confirm" type="password"
-            placeholder="Konfirmasi password baru">
+            <input id="new-password-confirm" type="password" placeholder="Konfirmasi password baru" onchange="validatePassword()" required>
           </div>
 
           <div class="button-wrap">
@@ -117,7 +115,6 @@
       </div>
     </div>
 
-  </div>
   </div>
 
   <!-- Own Javascript -->

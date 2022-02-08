@@ -1,11 +1,11 @@
 // KELAS
-let deleteModal = document.getElementById("delete-modal");
+let settingModal = document.getElementById("setting-modal");
 let deleteSoalModal = document.getElementById("delete-soal-modal");
 let tambahSoalModal = document.getElementById("tambah-soal-modal");
 let editSoalModal = document.getElementById("edit-soal-modal");
 
-function openHapusKelas() {
-  deleteModal.style.display = "flex";
+function openSettingKelas() {
+  settingModal.style.display = "flex";
   overlay.classList.toggle("overlayStyle");
 
   if (header.style.zIndex = 9) {
@@ -49,7 +49,6 @@ function openEditSoal(editBtnId) {
   //catch jawaban image name from some folders
   let AnsImgSrcArray = selectedQNA.lastElementChild.lastElementChild.attributes[0].textContent.split("/");
   let selectedAnsImg = AnsImgSrcArray[AnsImgSrcArray.length - 1];
-  
 
   //reset inputted image
   document.querySelector("#edit-soal-inputted-img").style.display = "none";
@@ -76,8 +75,24 @@ function openEditSoal(editBtnId) {
   jawabanEdited.value = selectedAns.innerHTML;
 }
 
+//UPLOAD EDIT COVER IMAGE
+function uploadFile(target) {
+  document.getElementById("cover-img-name").innerHTML = target.files[0].name;
+}
+
+//OPEN EDIT COVER 
+function openEditCover() {
+  document.getElementsByClassName("edit-cover")[0].style.display = "block";
+  document.getElementsByClassName("choices")[0].style.display = "none";
+}
+
+function backToSettingModal(){
+  document.getElementsByClassName("edit-cover")[0].style.display = "none";
+  document.getElementsByClassName("choices")[0].style.display = "block";
+}
+
 function closeModal() {
-  deleteModal.style.display = "none";
+  settingModal.style.display = "none";
   deleteSoalModal.style.display = "none";
   tambahSoalModal.style.display = "none";
   editSoalModal.style.display = "none";
@@ -108,6 +123,14 @@ function closeModal() {
 
   document.getElementById("tambah-gambar-jawaban-btn").style.display = "inline";
   document.getElementById("jawaban-inputted-img").style.display = "none";
+
+  //reset setting modal
+  document.getElementsByClassName("edit-cover")[0].style.display = "none";
+  document.getElementsByClassName("choices")[0].style.display = "block";
+
+  //reset edit cover uploaded img
+  document.getElementById("cover-img-name").innerHTML = "Upload gambar";
+  document.getElementById("cover-img").value = null;
 }
 
 // UPLOADED IMAGE NAME CATCH
@@ -137,7 +160,7 @@ function deleteInputtedFile(target) {
   let konfirmasiHapus = target.parentNode.nextElementSibling;
   let konfirmasiHapusSm = target.parentNode.parentNode.parentNode.nextElementSibling;
 
-  if (window.screen.width <= 600) {
+  if (window.screen.width <= 640) {
     konfirmasiHapusSm.style.display = "block";
   } else {
     konfirmasiHapus.style.display = "flex";
@@ -257,6 +280,4 @@ function cancelDesksripsi() {
 }
 
 //todo
-//scroll textfield up when keyboard popsup
-//change delete kelas btn into setting
-//notification after reset password
+// edit profile page

@@ -170,7 +170,7 @@ input:focus {
 .dropdown-profile {
   display: none;
   width: 155px;
-  height: 92px;
+  height: auto;
   position: fixed;
   right: 40px;
   top: 80px;
@@ -183,17 +183,19 @@ input:focus {
   box-shadow: 6px 2px 10px 0px rgba(0, 0, 0, 0.2), 4px 4px 0px 0px #667EEA, 6px 2px 10px 0px rgba(0, 0, 0, 0.2);
   height: 100%;
   padding: 0;
+  margin-bottom: 0;
 }
 
 #dropdown-profile ul a {
   text-decoration: none;
   color: var(--secondary);
+  height: 100%;
 }
 
 #dropdown-profile ul li {
-  padding-top: 10px;
+  line-height: 40px;
   padding-left: 10px;
-  height: 50%;
+  height: 100%;
   list-style-type: none;
 }
 
@@ -266,7 +268,7 @@ footer div {
   animation: fade-in 0.5s forwards;
 }
 
-@media only screen and (max-width: 600px) {
+@media only screen and (max-width: 640px) {
   .header {
     position: fixed;
     width: 100%;
@@ -354,7 +356,7 @@ footer div {
 
 .login-form .login-btn:hover,
 .regis-form .buat-akun-btn:hover {
-  border: 2px solid var(--main-bg);
+  border: 1px solid var(--main-bg);
 }
 
 .login-form .login-btn:active,
@@ -402,7 +404,7 @@ footer div {
   text-decoration: none;
 }
 
-@media only screen and (max-width: 600px) {
+@media only screen and (max-width: 640px) {
 
   .login-form,
   .regis-form {
@@ -437,6 +439,38 @@ footer div {
   .login-form .daftar-btn {
     font-size: 14px;
   }
+}
+
+/* VERIFIKASI EMAIL */
+.verifikasi-email-container {
+  padding: 20px;
+  width: 400px;
+}
+
+.verifikasi-email-container h3 {
+  text-align: center;
+  color: var(--secondary);
+}
+
+.verifikasi-email-container h3 span{
+  color: var(--primary);
+}
+
+.verifikasi-email-container h4 {
+  text-align: center;
+  color: var(--secondary);
+  margin-bottom: 20px;
+}
+
+.verifikasi-email-container button{
+  display: block;
+  margin: 0 auto;
+  height: 40px;
+  background: var(--primary);
+  border: none;
+  color: white;
+  font-weight: bold;
+  padding: 0 10px;
 }
 
 /* LUPA SANDI*/
@@ -507,7 +541,7 @@ footer div {
 
 .verfikasi-terkirim {
   background: white;
-  width: 20%;
+  width: 200px;
   margin: 0 auto;
   padding: 15px;
   margin-top: 100px;
@@ -531,14 +565,11 @@ footer div {
   .lupa-sandi-container {
     width: 60%;
   }
-
-  .verfikasi-terkirim {
-    width: 80%;
-  }
 }
 
-@media only screen and (max-width: 600px) {
+@media only screen and (max-width: 640px) {
   .lupa-sandi-container {
+    margin-top: 50px;
     width: 95%;
   }
 
@@ -552,10 +583,6 @@ footer div {
     width: 100%;
     margin-left: 0;
     margin-bottom: 10px;
-  }
-
-  .verfikasi-terkirim {
-    width: 90%;
   }
 }
 
@@ -610,7 +637,7 @@ footer div {
   }
 }
 
-@media only screen and (max-width: 600px) {
+@media only screen and (max-width: 640px) {
   .reset-sandi-container {
     width: 90%;
   }
@@ -668,7 +695,7 @@ footer div {
 }
 
 .top-kelas #buat-btn:hover {
-  border: 2px solid var(--main-bg);
+  border: 1px solid var(--main-bg);
 }
 
 #list-kelas-wrap {
@@ -799,7 +826,7 @@ footer div {
   color: var(--secondary);
   width: 100%;
   height: 50px;
-  padding: 0 20px;
+  padding: 0 15px;
   background: var(--main-bg);
   font-size: 16px;
   margin: 5px 0 15px;
@@ -827,6 +854,11 @@ footer div {
   padding: 0 10px;
   cursor: pointer;
   background: var(--main-bg);
+  opacity: 0.8;
+}
+
+#modal-buat label.upload-btn:hover {
+  opacity: 1;
 }
 
 #modal-buat label.upload-btn span {
@@ -909,7 +941,7 @@ footer div {
   }
 }
 
-@media only screen and (max-width: 600px) {
+@media only screen and (max-width: 640px) {
   .container.kelas {
     padding-top: 100px;
     min-width: 360px;
@@ -969,6 +1001,7 @@ footer div {
   #modal-buat,
   #modal-join {
     width: 90%;
+    top: 20px;
   }
 }
 
@@ -1108,7 +1141,7 @@ footer div {
 }
 
 .kelas-header-2 .delete-btn {
-  box-shadow: 1px 1px 5px 0px rgba(0, 0, 0, 0.2), 3px 3px 0px 0px #ED5E68, 1px 1px 5px 0px rgba(0, 0, 0, 0.2);
+  box-shadow: 1px 1px 5px 0px rgba(0, 0, 0, 0.2), 3px 3px 0px 0px #667EEA, 1px 1px 5px 0px rgba(0, 0, 0, 0.2);
 }
 
 .kelas-header-3 {
@@ -1240,71 +1273,173 @@ footer div {
 }
 
 /* KELAS MODAL */
-.delete-modal {
+.setting-modal {
   display: none;
   flex-direction: column;
   justify-content: space-between;
   animation: box-shadow 0.5s forwards;
-  width: 25%;
-  height: 140px;
+  max-width: 200px;
+  height: auto;
   position: fixed;
   left: 0;
   right: 0;
-  top: 250px;
+  top: 200px;
   margin: 0 auto;
   z-index: 9;
   font-size: 20px;
   background: white;
   padding: 15px;
+  overflow: hidden;
 }
 
-.delete-modal h3 {
-  font-size: 20px;
-  text-align: center;
-  margin: 0 0 10px;
-  color: var(--primary);
+.setting-modal .choices {
+  animation: fade-in 0.5s forwards;
 }
 
-.delete-modal div {
-  width: 100%;
-  display: flex;
-  justify-content: space-between;
-  gap: 10px;
-  font-size: 16px;
+.setting-modal .close-modal-btn {
+  cursor: pointer;
 }
 
-.delete-modal a {
-  width: 50%;
-}
-
-.delete-modal button,
-.delete-modal a {
-  text-align: center;
-  border: none;
-  height: 40px;
-  width: 50%;
+.setting-modal .d-flex > button {
   background: var(--primary);
-  color: white;
+  border: none;
+  font-size: 18px;
   font-weight: bold;
+  color: white;
+  padding: 5px;
+  margin-bottom: 10px;
+  height: 40px;
 }
 
-.delete-modal button:active {
+.setting-modal .d-flex > button:hover {
+  border: 1px solid var(--main-bg);
+}
+
+.setting-modal a {
+  color: #ED5E68;
+  background-color: white;
+  border: 1px solid #ED5E68;
+  margin-bottom: 10px;
+  padding: 5px;
+  height: 40px;
+}
+
+.setting-modal a:hover {
+  border: 2px solid #ED5E68;
+}
+
+.setting-modal a button {
+  background: none;
+  color: #ED5E68;
+  width: 100%;
+  border: none;
+  font-weight: bold;
+  font-size: 18px;
+}
+
+.setting-modal .d-flex > button:active,
+.setting-modal a:active {
   position: relative;
   top: 1px;
 }
 
-.delete-modal button.batal-btn {
-  background-color: white;
-  color: var(--primary);
-  border: 1px solid var(--primary);
+.setting-modal .edit-cover div>img:nth-child(1) {
+  cursor: pointer;
 }
+
+.setting-modal .edit-cover {
+  display: none;
+  animation: fade-in 0.5s forwards;
+}
+
+.setting-modal .edit-cover h3 {
+  color: var(--primary);
+  text-align: center;
+  font-size: 24px;
+  margin: 0;
+  margin-bottom: 10px;
+}
+
+.setting-modal .edit-cover label {
+  background-color: var(--main-bg);
+  color: var(--secondary);
+  font-size: 18px;
+  height: 40px;
+  line-height: 40px;
+  margin: 5px 0 20px;
+  padding: 0 10px;
+  cursor: pointer;
+  opacity: 0.8;
+  display: flex;
+  justify-content: center;
+}
+
+.setting-modal .edit-cover label:hover {
+  opacity: 1;
+}
+
+.setting-modal .edit-cover label img {
+  margin-right: 5px;
+}
+
+.setting-modal .edit-cover label span {
+  text-overflow: ellipsis;
+  overflow: hidden;
+  white-space: nowrap;
+}
+
+.setting-modal .edit-cover form {
+  display: flex;
+  justify-content: end;
+}
+
+.setting-modal .edit-cover form div {
+  background-color: white;
+  color: var(--secondary);
+  border: 1px solid var(--secondary);
+  font-size: 16px;
+  font-weight: bold;
+  padding: 5px;
+  margin-right: 5px;
+  width: 50%;
+  text-align: center;
+  height: 40px;
+  line-height: 30px;
+}
+
+.setting-modal .edit-cover form button {
+  background-color: var(--primary);
+  color: white;
+  border: none;
+  font-size: 16px;
+  font-weight: bold;
+  padding: 5px;
+  width: 50%;
+  height: 40px;
+}
+
+.setting-modal .edit-cover form div:hover {
+  cursor: pointer;
+  border: 2px solid var(--secondary);
+}
+
+.setting-modal .edit-cover form button:hover {
+  border: 1px solid var(--main-bg);
+}
+
+.setting-modal .edit-cover form div:active,
+.setting-modal .edit-cover form button:active {
+  position: relative;
+  top: 1px;
+}
+
 
 .delete-soal-modal {
   display: none;
   flex-direction: column;
   justify-content: space-between;
   animation: box-shadow 0.5s forwards;
-  width: 25%;
+  max-width: 260px;
   height: 140px;
   position: fixed;
   left: 0;
@@ -1332,29 +1467,41 @@ footer div {
   font-size: 16px;
 }
 
-.delete-soal-modal a {
+.delete-soal-modal div>* {
   width: 50%;
+  height: 40px;
+  line-height: 40px;
+  background-color: var(--primary);
+  border: none;
+  font-weight: bold;
 }
 
-.delete-soal-modal button,
-.delete-soal-modal a {
-  border: none;
-  height: 40px;
+.delete-soal-modal div>button {
+  background: white;
+  border: 1px solid var(--secondary);
+  color: var(--secondary);
+}
+
+.delete-soal-modal div>button:hover {
+  border: 2px solid var(--secondary);
+}
+
+.delete-soal-modal button.iya-btn {
   width: 100%;
-  background: var(--primary);
+  background: none;
+  border: none;
   color: white;
   font-weight: bold;
 }
 
-.delete-soal-modal button:active {
-  position: relative;
-  top: 1px;
+.delete-soal-modal button.iya-btn:hover {
+  border: 1px solid var(--main-bg);
 }
 
-.delete-soal-modal button.batal-btn {
-  background-color: white;
-  color: var(--primary);
-  border: 1px solid var(--primary);
+.delete-soal-modal div>button:active,
+.delete-soal-modal button.iya-btn:active {
+  position: relative;
+  top: 1px;
 }
 
 .tambah-soal-modal {
@@ -1513,6 +1660,14 @@ span#tidak-hapus-img:hover {
   font-weight: bold;
 }
 
+.tambah-soal-modal .button-wrap div:hover {
+  border: 2px solid var(--secondary);
+}
+
+.tambah-soal-modal .button-wrap button:hover {
+  border: 1px solid var(--main-bg);
+}
+
 .tambah-soal-modal .button-wrap button:active,
 .tambah-soal-modal .button-wrap div:active {
   position: relative;
@@ -1521,6 +1676,7 @@ span#tidak-hapus-img:hover {
 
 .tambah-soal-modal .button-wrap .batal-btn {
   background: white;
+  font-weight: bold;
   border: 1px solid var(--secondary);
   color: var(--secondary);
 }
@@ -1616,16 +1772,24 @@ span#tidak-hapus-img:hover {
   cursor: pointer;
 }
 
-.edit-soal-modal .button-wrap button:active,
-.edit-soal-modal .button-wrap div:active {
-  position: relative;
-  top: 1px;
-}
-
 .edit-soal-modal .button-wrap .batal-btn {
   background: white;
   border: 1px solid var(--secondary);
   color: var(--secondary);
+}
+
+.edit-soal-modal .button-wrap button:hover {
+  border: 1px solid var(--main-bg);
+}
+
+.edit-soal-modal .button-wrap div:hover {
+  border: 2px solid var(--secondary);
+}
+
+.edit-soal-modal .button-wrap button:active,
+.edit-soal-modal .button-wrap div:active {
+  position: relative;
+  top: 1px;
 }
 
 
@@ -1650,7 +1814,7 @@ span#tidak-hapus-img:hover {
   .any-wrapper {
     position: sticky;
     top: 57px;
-    z-index: 8;
+    z-index: 7;
     width: 100%;
     height: 60px;
     padding: 5px 0;
@@ -1682,12 +1846,12 @@ span#tidak-hapus-img:hover {
     margin: 20px auto 0;
   }
 
-  .delete-modal {
+  .setting-modal {
     width: 35%;
   }
 
-  .delete-modal h3 {
-    font-size: 18px;
+  .setting-modal h3 {
+    font-size: 24px;
   }
 
   .delete-soal-modal {
@@ -1709,7 +1873,7 @@ span#tidak-hapus-img:hover {
   }
 }
 
-@media only screen and (max-width: 600px) {
+@media only screen and (max-width: 640px) {
   .kelas-container {
     width: 100%;
     margin-top: 0;
@@ -1738,9 +1902,9 @@ span#tidak-hapus-img:hover {
 
   .header-wrap-sm {
     position: sticky;
-    top: 0;
+    top: 58px;
     width: 100%;
-    z-index: 8;
+    z-index: 7;
     background: var(--main-bg);
     display: flex;
     justify-content: right;
@@ -1790,7 +1954,7 @@ span#tidak-hapus-img:hover {
   }
 
   .header-wrap-sm .delete-btn-sm {
-    box-shadow: 1px 1px 5px 0px rgba(0, 0, 0, 0.2), 3px 3px 0px 0px #ED5E68, 1px 1px 5px 0px rgba(0, 0, 0, 0.2);
+    box-shadow: 1px 1px 5px 0px rgba(0, 0, 0, 0.2), 3px 3px 0px 0px #667EEA, 1px 1px 5px 0px rgba(0, 0, 0, 0.2);
   }
 
   .search-soal-wrap-md {
@@ -1800,6 +1964,10 @@ span#tidak-hapus-img:hover {
   #list-soal-container {
     width: 90%;
     margin: 20px auto 0;
+  }
+
+  #list-soal-container .qna {
+    margin: 0 0 25px;
   }
 
   .qna .qna-btn-wrap img.red-icon {
@@ -1821,18 +1989,18 @@ span#tidak-hapus-img:hover {
     font-size: 14px;
   }
 
-  .delete-modal {
+  .setting-modal {
     width: 70%;
-    top: 250px;
+    top: 200px;
   }
 
-  .delete-modal h3 {
-    font-size: 18px;
+  .setting-modal h3 {
+    font-size: 24px;
   }
 
   .delete-soal-modal {
     width: 70%;
-    top: 250px;
+    top: 200px;
   }
 
   .delete-soal-modal h3 {
@@ -1841,14 +2009,14 @@ span#tidak-hapus-img:hover {
 
   .tambah-soal-modal {
     width: 95%;
-    top: 120px;
+    top: 20px;
     max-height: 500px;
     overflow-y: scroll;
   }
 
   .edit-soal-modal {
     width: 95%;
-    top: 120px;
+    top: 20px;
     max-height: 500px;
     overflow-y: scroll;
   }
@@ -1885,6 +2053,7 @@ span#tidak-hapus-img:hover {
   border-right: 1px solid var(--primary);
   float: left;
   animation: fade-in 0.5s forwards;
+  padding-right: 20px;
 }
 
 .edit-profile-container ul {
@@ -2013,11 +2182,12 @@ span#tidak-hapus-img:hover {
 }
 
 .edit-profile-container .body .keamanan {
-  padding-left: 50px;
+  padding-left: 25px;
 }
 
 #keamanan {
   display: none;
+  animation: fade-in 0.5s forwards;
 }
 
 .topbar-sm {
@@ -2042,14 +2212,14 @@ span#tidak-hapus-img:hover {
   }
 }
 
-@media only screen and (max-width: 600px) {
+@media only screen and (max-width: 640px) {
   .sidebar {
     display: none;
   }
 
   .edit-profile-container {
     position: relative;
-    margin-top: 100px;
+    margin-top: 120px;
     width: 95%;
     padding: 10px 20px;
   }

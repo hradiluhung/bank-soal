@@ -54,14 +54,14 @@
           <div class="form-field d-flex align-items-center mt-3">
             <img class="primary-icon flex-shrink-0" src="assets/img/icon/key-solid.svg" alt="" width="18px">
             <input
-            id="password" class="flex-grow-1 ms-3" type="password" name="password" placeholder="Password (min 8 karakter)" minlength="8" required>
+            id="password" class="flex-grow-1 ms-3" type="password" name="password" placeholder="Password (min 8 karakter)" minlength="8" required onchange="validatePassword()">
             </input>
           </div>
 
           <div class="form-field d-flex align-items-center mt-3">
             <img class="primary-icon flex-shrink-0" src="assets/img/icon/key-confirm-solid.svg" alt="" width="20px">
             <input
-            id="confirm-password" class="flex-grow-1 ms-3" type="password" name="password-confirm" placeholder="Konfirmasi password" required>
+            id="confirm-password" class="flex-grow-1 ms-3" type="password" name="password-confirm" placeholder="Konfirmasi password" required onchange="validatePassword()">
             </input>
           </div>
 
